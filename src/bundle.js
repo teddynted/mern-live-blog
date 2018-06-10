@@ -25912,7 +25912,6 @@
 	         var _this2 = this;
 
 	         this.socket.on('posts', function (data) {
-	            console.log(data[0]);
 	            if (Object.keys(_this2.state.posts).length > 0 && Object.keys(data).length > 0) {
 	               _this2.setState({ posts: [data[0]].concat(_toConsumableArray(_this2.state.posts)) });
 	            } else {

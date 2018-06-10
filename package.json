@@ -1,7 +1,7 @@
 {
   "name": "mern-socket",
   "version": "1.0.0",
-  "description": "mern-socket",
+  "description": "mern-live-blog",
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
