@@ -13,8 +13,8 @@ class Blog extends Component {
     }
     componentDidMount(){
        this.socket.on('posts', data => {
-          if( Object.keys(this.state.posts).length > 0 && Object.keys(data).length === 4 ) {
-              this.setState({ posts: [ data, ...this.state.posts ]});
+          if( Object.keys(this.state.posts).length > 0 && Object.keys(data).length > 0 ) {
+              this.setState({ posts: [ data[0], ...this.state.posts ]});
           } else {
               this.setState({ posts: data });
           }
@@ -23,7 +23,6 @@ class Blog extends Component {
     onSubmit(e){
       e.preventDefault();
       if( this.state.post !== '' ) {
-          //this.socket.emit('posts', { post: this.state.post });
           this.props.createPost({ post: this.state.post });
       } else {
           alert('Blog post is required!');

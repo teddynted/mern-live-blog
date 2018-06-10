@@ -25912,8 +25912,9 @@
 	         var _this2 = this;
 
 	         this.socket.on('posts', function (data) {
-	            if (Object.keys(_this2.state.posts).length > 0 && Object.keys(data).length === 4) {
-	               _this2.setState({ posts: [data].concat(_toConsumableArray(_this2.state.posts)) });
+	            console.log(data[0]);
+	            if (Object.keys(_this2.state.posts).length > 0 && Object.keys(data).length > 0) {
+	               _this2.setState({ posts: [data[0]].concat(_toConsumableArray(_this2.state.posts)) });
 	            } else {
 	               _this2.setState({ posts: data });
 	            }
@@ -25924,7 +25925,6 @@
 	      value: function onSubmit(e) {
 	         e.preventDefault();
 	         if (this.state.post !== '') {
-	            //this.socket.emit('posts', { post: this.state.post });
 	            this.props.createPost({ post: this.state.post });
 	         } else {
 	            alert('Blog post is required!');

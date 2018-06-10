@@ -12,7 +12,7 @@ module.exports = function(io) {
      
      router.post('/api/post/', async (req, res) => {
         obj.newPost(req.body.post).then(response => {
-           socket.broadcast.emit('posts', response );
+           socket.broadcast.emit('posts', [ { '_id' : response._id, 'post': response.post, 'createdAt': response.createdAt } ] );
         })
      });
      
